@@ -8,11 +8,11 @@ class Print
   end
 
   def format_statement
-    @all_transactions.each do |date,type,amount,balance|
+    @all_transactions.each do |date, type, amount, balance|
       if type == "credit"
-        @balance_statement += "#{date} || #{"%.2f" %amount} || || #{"%.2f" %balance}\n"
+        @balance_statement += "#{date} || #{"%.2f" % amount} || || #{"%.2f" % balance}\n"
       else
-        @balance_statement += " #{date} || || #{"%.2f" %amount} || #{"%.2f" %balance}\n"
+        @balance_statement += " #{date} || || #{"%.2f" % amount} || #{"%.2f" % balance}\n"
       end
     end
   end

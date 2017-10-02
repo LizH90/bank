@@ -2,9 +2,6 @@ require './lib/account.rb'
 require './lib/transactions.rb'
 require './lib/print.rb'
 
-
-
-
 transactions = Transactions.new
 
 account = Account.new

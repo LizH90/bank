@@ -1,7 +1,7 @@
 require 'print'
 
 describe Print do
-  subject(:print) { described_class.new([["12/10/2017", "credit", 100, 100],["15/10/2017", "debit", 50, 50]]) }
+  subject(:print) { described_class.new([["12/10/2017", "credit", 100, 100], ["15/10/2017", "debit", 50, 50]]) }
 
   before(:each) do
     subject.format_statement
@@ -16,7 +16,7 @@ describe Print do
   end
 
   it 'has print balance method' do
-    expect{subject.print_balance}.to output.to_stdout
+    expect { subject.print_balance }.to output.to_stdout
   end
 
 end
