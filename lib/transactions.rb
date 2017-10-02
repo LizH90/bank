@@ -7,12 +7,14 @@ class Transactions
     @balance = 0
   end
 
-  def deposit(amount)
+  def deposit(date, amount)
     @balance += amount
+    @all_transactions << [date, "credit", amount, @balance]
   end
 
-  def withdraw(amount)
+  def withdraw(date, amount)
     raise 'Insufficient funds' if amount > @balance
     @balance -= amount
+    @all_transactions << [date, "debit", amount, @balance]
   end
 end
