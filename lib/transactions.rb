@@ -1,20 +1,20 @@
 class Transactions
 
-  attr_reader :all_transactions, :balance
+  attr_reader :all_transactions, :account
 
   def initialize
     @all_transactions = []
-    @balance = 0
+    @account = Account.new
   end
 
   def deposit(date, amount)
-    @balance += amount
-    @all_transactions << [date, "credit", amount, @balance]
+    @account.balance += amount
+    @all_transactions << [date, "credit", amount, @account.balance]
   end
 
   def withdraw(date, amount)
-    raise 'Insufficient funds' if amount > @balance
-    @balance -= amount
-    @all_transactions << [date, "debit", amount, @balance]
+    raise 'Insufficient funds' if amount > @account.balance
+    @account.balance -= amount
+    @all_transactions << [date, "debit", amount, @account.balance]
   end
 end
