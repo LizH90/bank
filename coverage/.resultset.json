@@ -1,7 +1,30 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/lizziehard/challenges/week_10/bank/spec/account_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/lizziehard/challenges/week_10/bank/lib/account.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ]
     },
-    "timestamp": 1506940269
+    "timestamp": 1506941366
   }
 }
