@@ -15,4 +15,4 @@ $ bundle install
 
 Testing
 -------
-Run the ```rspec``` command to see the tests and test coverage percentage.
+Run the ```rspec``` command to see the tests and test coverage percentage through simplecov.
