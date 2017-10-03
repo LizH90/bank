@@ -11,7 +11,7 @@ describe Transactions do
   describe 'when the balance is topped up' do
 
     before do
-      subject.deposit('01,10,2017', 100)
+      subject.deposit('01/10/2017', 100)
     end
 
     it 'increases the balance when you deposit a sum' do
@@ -19,14 +19,14 @@ describe Transactions do
     end
 
     it 'adds deposit to all transactions array' do
-      expect(subject.all_transactions[0]).to eq(["01,10,2017", "credit", 100, 100])
+      expect(subject.all_transactions[0]).to eq(["01/10/2017", "credit", 100, 100])
     end
 
   end
 
   describe 'withdrawal' do
     before do
-      subject.deposit('01,10,2017', 100)
+      subject.deposit('01/10/2017', 100)
       subject.withdraw("03/10/2017", 50)
     end
 

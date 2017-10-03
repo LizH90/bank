@@ -17,4 +17,5 @@ class Transactions
     @account.balance -= amount
     @all_transactions << [date, "debit", amount, @account.balance]
   end
+
 end
