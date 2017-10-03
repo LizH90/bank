@@ -1,6 +1,6 @@
 require './lib/account.rb'
 require './lib/transactions.rb'
-require './lib/print.rb'
+require './lib/printer.rb'
 
 transactions = Transactions.new
 
@@ -8,16 +8,14 @@ transactions.deposit("12/10/2017", 100)
 
 transactions.withdraw("15/10/2017", 50)
 
-print = Print.new(transactions.all_transactions)
+printer = Printer.new(transactions.all_transactions)
 
-print.number_format
+printer.format_numbers
 
-p print.format_trans
+printer.format_statement
 
-print.format_statement
+printer.format_numbers
 
-print.number_format
+p printer.all_transactions
 
-p print.all_transactions
-
-p print.print_balance
+p printer.print_statement
