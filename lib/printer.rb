@@ -1,31 +1,39 @@
+require './lib/transactionlog.rb'
+
 class Printer
 
-  attr_reader :all_transactions, :balance_statement
+  attr_reader :transactions, :balance_statement
 
-  def initialize(all_transactions)
-    @all_transactions = all_transactions
+  def initialize(transactions)
     @balance_statement = ""
+    @transactions = transactions
   end
 
   def format_numbers
-    @all_transactions = @all_transactions.map do |date, type, amount, balance|
-      [date, type, "%.2f" % amount, "%.2f" % balance]
+    @transactions = transactions.map do |transactions|
+      format(transactions)
+
     end
   end
 
   def format_statement
-    @all_transactions.each do |date, type, amount, balance|
+    @transactions.reverse.each do |date, type, amount, balance|
       if type == "credit"
-        @balance_statement += "#{date} || #{amount} || || #{balance}\n"
+        puts "#{date} || #{amount} || || #{balance}\n"
       else
-        @balance_statement += " #{date} || || #{amount} || #{balance}\n"
+        puts "#{date} || || #{amount} || #{balance}\n"
       end
     end
   end
 
-  def print_statement
+  def full_statement
     puts "date || credit || debit || balance\n"
-    puts @balance_statement
+    format_numbers
+    format_statement
   end
 
+  def format(transactions)
+    [transactions.date, transactions.type,
+    "%.2f" % transactions.amount, "%.2f" % transactions.balance]
+  end
 end

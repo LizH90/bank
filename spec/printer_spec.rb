@@ -1,23 +1,27 @@
 require 'printer'
 
 describe Printer do
-  subject(:printer) { described_class.new([["12/10/2017", "credit", 100, 100], ["15/10/2017", "debit", 50, 50]]) }
+  let(:transactionlog) { TransactionLog.new }
 
-  before(:each) do
-    subject.format_numbers
-    subject.format_statement
+  subject(:printer) { described_class.new ['10/01/2012', 'credit', 1000, 1000] }
+
+  it ' Initializes with an empty string' do
+    expect(printer.balance_statement).to eq("")
   end
 
-  it 'credits are put in the correct column' do
-    expect(subject.balance_statement).to include("12/10/2017 || 100.00 || || 100.00")
-  end
+  describe 'Formating statements' do
 
-  it 'debits are put in the correct column' do
-    expect(subject.balance_statement).to include("15/10/2017 || || 50.00 || 50.00")
-  end
+    it 'The numbers are formated correctly' do
+      expect(subject).to respond_to(:format_numbers)
+    end
 
-  it 'has print balance method' do
-    expect { subject.print_statement }.to output.to_stdout
-  end
+    it 'The numbers are formated correctly' do
+      expect(subject).to respond_to(:format_statement)
+    end
 
+    it 'The numbers are formated correctly' do
+      expect(subject).to respond_to(:full_statement)
+    end
+
+  end
 end

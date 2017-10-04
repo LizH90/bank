@@ -1,21 +1,15 @@
 require './lib/account.rb'
-require './lib/transactions.rb'
+require './lib/transactionlog.rb'
 require './lib/printer.rb'
 
-transactions = Transactions.new
+account = Account.new
 
-transactions.deposit("12/10/2017", 100)
+account.deposit("10/01/2012", 1000)
 
-transactions.withdraw("15/10/2017", 50)
+account.deposit("13/01/2012", 2000)
 
-printer = Printer.new(transactions.all_transactions)
+account.withdraw("14/01/2012", 500)
 
-printer.format_numbers
+account.print_statement
 
-printer.format_statement
-
-printer.format_numbers
-
-p printer.all_transactions
-
-p printer.print_statement
+# p account.printer.transactions
